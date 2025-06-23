@@ -36,7 +36,7 @@ class Mobile {
         this.model = model;
         this.price = price;
         this.storage = storage;
-        this.sim = null;
+        this.sim = []; 
     }
 
     insertSim(sim) {
@@ -78,6 +78,10 @@ class Sim {
         this.isActive = true;
     }
     recharge(amount) {
+        if(balance < 0){
+            console.log(`to add balance give amount greater than zero.`);
+            return;
+        }
         this.balance += amount;
         console.log(`Recharge of ₹${this.balance} successfully on your SIM+`);
     }
